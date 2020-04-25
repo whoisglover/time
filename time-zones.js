@@ -1,7 +1,7 @@
 const express = require('express')
 const moment = require('moment-timezone')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.get('/time', (req, res) => {
   console.log('in the /time request')
