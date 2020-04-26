@@ -116,6 +116,16 @@ const options = {
   apis: ["./time-zones.js"]
 };
 const specs = swaggerJsdoc(options);
+
+
+app.use("/", swaggerUi.serve)
+app.get(
+  "/",
+  swaggerUi.setup(specs, {
+    explorer: true
+  })
+);
+
 app.use("/docs", swaggerUi.serve);
 app.get(
   "/docs",
@@ -124,4 +134,4 @@ app.get(
   })
 );
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+app.listen(port, () => console.log(`Time Zones API listening at http://localhost:${port}`))
